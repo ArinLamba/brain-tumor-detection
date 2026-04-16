@@ -1,4 +1,4 @@
-import { PredictionResponse } from "../types/predictions";
+import { PredictionResponse } from "../../types/predictions";
 
 type Props = {
   result: PredictionResponse | null;
