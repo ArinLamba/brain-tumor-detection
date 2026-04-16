@@ -35,6 +35,12 @@ model = YOLO(os.path.join(BASE_DIR, "best.pt"))
 async def predict(file: UploadFile = File(...)):
     try:
 
+        if not file.filename.lower().endswith((".jpg", ".jpeg", ".png")):
+            return JSONResponse(
+                status_code=400,
+                content={"error": "Only image files allowed"}
+            )
+
         unique_name = f"{uuid.uuid4()}_{file.filename}"
         file_path = os.path.join(UPLOAD_FOLDER, unique_name)
 
@@ -77,12 +83,6 @@ async def predict(file: UploadFile = File(...)):
             output_image_path = os.path.join(save_dir, output_files[0])
 
         output_image_url = f"/outputs/result/{os.path.basename(output_image_path)}"
-
-        if not file.filename.lower().endswith((".jpg", ".jpeg", ".png")):
-            return JSONResponse(
-                status_code=400,
-                content={"error": "Only image files allowed"}
-            )
 
         return JSONResponse(content={
             "filename": file.filename,
