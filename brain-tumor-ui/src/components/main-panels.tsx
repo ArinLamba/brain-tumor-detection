@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { UploadPanel } from './upload';
 import { ResultPanel } from './result';
 import { EmptyState } from './empty-state';
-import { PredictionResponse } from '../../types/predictions';
+import { PredictionResponse } from '../types/predictions';
 
 export const MainPanels = () => {
 

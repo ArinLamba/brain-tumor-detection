@@ -1,8 +1,8 @@
 "use client";
 
-import { Sidebar } from "./components/sidebar";
-import { Header } from "./components/header";
-import { MainPanels } from "./components/main-panels";
+import { Sidebar } from "../components/sidebar";
+import { Header } from "../components/header";
+import { MainPanels } from "../components/main-panels";
 
 export default function Home() {
 
