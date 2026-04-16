@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment (IMPORTANT)
+yolo-env/
+Lib/
+Scripts/
+Include/
+pyvenv.cfg
+
+# ML outputs
+runs/
+outputs/
+uploads/
+
+# dataset (no need to upload)
+dataset/
+
+# OS
+.DS_Store

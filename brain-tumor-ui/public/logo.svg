@@ -1,0 +1,25 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  
+  <!-- Brain Outline -->
+  <path d="M30 30 
+           C30 15, 50 10, 60 20 
+           C70 10, 90 15, 90 30 
+           C90 45, 70 50, 60 40 
+           C50 50, 30 45, 30 30 Z" stroke="#00FFFF" stroke-width="2" fill="none"></path>
+
+  <!-- Scan Line -->
+  <line x1="25" y1="30" x2="95" y2="30" stroke="#00FFFF" stroke-width="2" opacity="0.8"></line>
+
+  <!-- Glow Effect -->
+  <line x1="25" y1="30" x2="95" y2="30" stroke="#00FFFF" stroke-width="6" opacity="0.1"></line>
+
+  <!-- Text -->
+  <text x="110" y="28" fill="white" font-size="16" font-family="Arial, sans-serif" font-weight="600">
+    NeuroScan
+  </text>
+
+  <text x="110" y="45" fill="#00FFFF" font-size="12" font-family="Arial, sans-serif">
+    AI
+  </text>
+
+</svg>
