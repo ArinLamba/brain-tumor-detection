@@ -1,4 +1,4 @@
-import { PredictionResponse } from "@/types/predictions";
+import { PredictionResponse } from "../types/predictions";
 
 import { ScanLoading } from "./scan-loading";
 import { Report } from "./report";

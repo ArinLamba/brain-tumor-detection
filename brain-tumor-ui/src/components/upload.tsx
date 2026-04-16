@@ -1,6 +1,6 @@
 "use client";
 
-import { PredictionResponse } from "@/types/predictions";
+import { PredictionResponse } from "../types/predictions";
 import { ChartNoAxesColumn } from "lucide-react";
 import { useState } from "react";
 
