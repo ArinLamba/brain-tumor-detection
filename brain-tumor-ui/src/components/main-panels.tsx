@@ -1,8 +1,8 @@
+import { useState } from 'react';
 
 import { UploadPanel } from './upload';
 import { ResultPanel } from './result';
 import { EmptyState } from './empty-state';
-import { useState } from 'react';
 import { PredictionResponse } from '../types/predictions';
 
 export const MainPanels = () => {
