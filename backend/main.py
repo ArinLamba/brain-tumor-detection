@@ -30,6 +30,9 @@ app.mount("/outputs", StaticFiles(directory=OUTPUT_BASE), name="outputs")
 
 model = YOLO(os.path.join(BASE_DIR, "best.pt"))
 
+@app.get("/")
+def root():
+    return {"message": "API is running"}
 
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...)):
@@ -72,8 +75,12 @@ async def predict(file: UploadFile = File(...)):
                 })
 
         # YOLO saves image with same filename as input
-        # output_image_path = os.path.join(save_dir, file.filename)
-        output_files = os.listdir(save_dir)
+        output_files = sorted(
+            os.listdir(save_dir),
+            key=lambda x: os.path.getmtime(os.path.join(save_dir, x)),
+            reverse=True
+        )
+
         output_image_path = os.path.join(save_dir, output_files[0])
 
         # fallback safety
@@ -82,7 +89,8 @@ async def predict(file: UploadFile = File(...)):
             output_files = os.listdir(save_dir)
             output_image_path = os.path.join(save_dir, output_files[0])
 
-        output_image_url = f"/outputs/result/{os.path.basename(output_image_path)}"
+        BASE_URL = "https://brain-tumor-detection-ay3p.onrender.com"
+        output_image_url = f"{BASE_URL}/outputs/result/{os.path.basename(output_image_path)}"
 
         return JSONResponse(content={
             "filename": file.filename,
