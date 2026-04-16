@@ -28,18 +28,28 @@ export const UploadPanel = ({
     setScanning(true);
     setLoading(true);
 
-    const res = await fetch("http://127.0.0.1:8000/predict/", {
-      method: "POST",
-      body: formData,
-    });
+    try {
 
-    const data = await res.json();
-    //small delay for animation
-    setTimeout(() => {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/predict/`, {
+        method: "POST",
+        body: formData,
+      });
+      
+      if(!res.ok) throw new Error("Upload Failed");
+
+      const data = await res.json();
+      //small delay for animation
+      setTimeout(() => {
+        setScanning(false);
+        setLoading(false);
+        setResult(data);
+      }, 2000);
+
+    } catch (err) {
+      console.error(err);
       setScanning(false);
       setLoading(false);
-      setResult(data);
-    }, 2000);
+    }
   };
 
   return (

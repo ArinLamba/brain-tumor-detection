@@ -19,3 +19,5 @@ dataset/
 
 # OS
 .DS_Store
+.vscode/
+.idea/
