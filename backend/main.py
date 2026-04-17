@@ -3,10 +3,13 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
 from ultralytics import YOLO
+from dotenv import load_dotenv
 
 import uuid
 import shutil
 import os
+
+load_dotenv()
 
 app = FastAPI()
 app.add_middleware(
@@ -89,8 +92,9 @@ async def predict(file: UploadFile = File(...)):
             output_files = os.listdir(save_dir)
             output_image_path = os.path.join(save_dir, output_files[0])
 
-        BASE_URL = "https://brain-tumor-detection-ay3p.onrender.com"
-        output_image_url = f"{BASE_URL}/outputs/result/{os.path.basename(output_image_path)}"
+
+        BASE_URL = os.getenv("BASE_URL", "http://127.0.0.1:8000")
+        output_image_url = f"/outputs/result/{os.path.basename(output_image_path)}"
 
         return JSONResponse(content={
             "filename": file.filename,

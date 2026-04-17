@@ -14,6 +14,7 @@ type ResultPanelProps = {
 
 export const ResultPanel = ({ result, scanning }: ResultPanelProps) => {
   const [tab, setTab] = useState<"result" | "analysis">("result");
+  const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}${result?.output_image_url}`;
 
   if (scanning) {
     return (
@@ -98,10 +99,10 @@ return (
         </div>
 
         {/* IMAGE */}
-        {result.output_image_url && (
+        {imageUrl && (
           <div className="pt-6">
             <img
-              src={result.output_image_url}
+              src={imageUrl}
               className="w-full rounded-lg border border-white/20"
             />
           </div>
