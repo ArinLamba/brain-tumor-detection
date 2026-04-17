@@ -1,10 +1,11 @@
-import { PredictionResponse } from "../types/predictions";
-
-import { ScanLoading } from "./scan-loading";
-import { Report } from "./report";
-import { AnalysisReportTab } from "./analysis-report-tab";
-import { DownloadReport } from "./download";
 import { useState } from "react";
+
+import { Report } from "@/components/report";
+import { DownloadReport } from "@/components/download";
+import { ScanLoading } from "@/components/scan-loading";
+import { PredictionResponse } from "@/types/predictions";
+import { AnalysisReportTab } from "@/components/analysis-report-tab";
+
 
 type ResultPanelProps = {
   result: PredictionResponse | null;

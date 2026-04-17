@@ -1,8 +1,8 @@
 "use client";
-
-import { PredictionResponse } from "../types/predictions";
-import { ChartNoAxesColumn } from "lucide-react";
 import { useState } from "react";
+
+import { PredictionResponse } from "@/types/predictions";
+import { ChartNoAxesColumn } from "lucide-react";
 
 type UploadPanelProps = {
   setResult: (result: React.SetStateAction<PredictionResponse | null>) => void;

@@ -1,16 +1,16 @@
 "use client"
 
-import { Button } from "./ui/button"
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
 
-import { downloadImage } from "../lib/download-image"
-import { downloadPDF } from "../lib/download-pdf"
-import { PredictionResponse } from "../types/predictions"
+import { downloadImage } from "@/lib/download-image"
+import { downloadPDF } from "@/lib/download-pdf"
+import { PredictionResponse } from "@/types/predictions"
 
 import { Download } from "lucide-react"
 
