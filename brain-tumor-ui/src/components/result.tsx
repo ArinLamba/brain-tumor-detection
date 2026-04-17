@@ -14,7 +14,7 @@ type ResultPanelProps = {
 
 export const ResultPanel = ({ result, scanning }: ResultPanelProps) => {
   const [tab, setTab] = useState<"result" | "analysis">("result");
-  const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}${result?.output_image_url}`;
+  const imageUrl = result?.output_image_url;
 
   if (scanning) {
     return (

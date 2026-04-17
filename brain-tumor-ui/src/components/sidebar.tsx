@@ -1,9 +1,8 @@
-import Image from 'next/image';
 
 export const Sidebar = () => {
   return (
     <div className="h-screen hidden lg:block  text-white top-0 sticky">
-      <Image src="/logo.svg" alt="logo" height={250} width={250} className="pt-5"/>
+      <img src="/logo.svg" alt="logo" className="pt-5 h-auto w-auto"/>
       <div className="mb-4 p-6 pl-8">
 
         <p className="text-sm opacity-80 mb-6">

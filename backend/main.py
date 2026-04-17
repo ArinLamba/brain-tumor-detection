@@ -12,9 +12,11 @@ import os
 load_dotenv()
 
 app = FastAPI()
+
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[origin.strip() for origin in allowed_origins if origin.strip()],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -93,8 +95,8 @@ async def predict(file: UploadFile = File(...)):
             output_image_path = os.path.join(save_dir, output_files[0])
 
 
-        BASE_URL = os.getenv("BASE_URL", "http://127.0.0.1:8000")
-        output_image_url = f"/outputs/result/{os.path.basename(output_image_path)}"
+        BASE_URL = os.getenv("BASE_URL")
+        output_image_url = f"{BASE_URL}/outputs/result/{os.path.basename(output_image_path)}"
 
         return JSONResponse(content={
             "filename": file.filename,
